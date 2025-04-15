@@ -1541,7 +1541,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-buster@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1568,7 +1568,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-buster@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1595,7 +1595,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bullseye@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1622,7 +1622,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bullseye@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1649,7 +1649,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bookworm@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1676,7 +1676,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bookworm@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1703,7 +1703,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-focal@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1730,7 +1730,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-focal@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1757,7 +1757,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-jammy@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1784,7 +1784,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-jammy@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1811,7 +1811,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-noble@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1838,7 +1838,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-noble@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1865,7 +1865,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/centos-8@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1892,7 +1892,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/centos-8@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1919,7 +1919,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/rockylinux-9@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1946,7 +1946,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/rockylinux-9@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -1973,7 +1973,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linux-x86_64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -2001,7 +2001,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linux-aarch64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linux-aarch64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -2029,7 +2029,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linuxmusl-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-x86_64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -2058,7 +2058,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linuxmusl-aarch64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-aarch64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ github.sha }}"
@@ -2195,7 +2195,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-buster@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_debian_buster_x86_64_gel_nightly }}!${{ github.sha }}"
@@ -2222,7 +2222,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-buster@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_debian_buster_aarch64_gel_nightly }}!${{ github.sha }}"
@@ -2249,7 +2249,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bullseye@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_debian_bullseye_x86_64_gel_nightly }}!${{ github.sha }}"
@@ -2276,7 +2276,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bullseye@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_debian_bullseye_aarch64_gel_nightly }}!${{ github.sha }}"
@@ -2303,7 +2303,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bookworm@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_debian_bookworm_x86_64_gel_nightly }}!${{ github.sha }}"
@@ -2330,7 +2330,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bookworm@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_debian_bookworm_aarch64_gel_nightly }}!${{ github.sha }}"
@@ -2357,7 +2357,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-focal@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_ubuntu_focal_x86_64_gel_nightly }}!${{ github.sha }}"
@@ -2384,7 +2384,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-focal@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_ubuntu_focal_aarch64_gel_nightly }}!${{ github.sha }}"
@@ -2411,7 +2411,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-jammy@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_ubuntu_jammy_x86_64_gel_nightly }}!${{ github.sha }}"
@@ -2438,7 +2438,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-jammy@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_ubuntu_jammy_aarch64_gel_nightly }}!${{ github.sha }}"
@@ -2465,7 +2465,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-noble@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_ubuntu_noble_x86_64_gel_nightly }}!${{ github.sha }}"
@@ -2492,7 +2492,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-noble@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_ubuntu_noble_aarch64_gel_nightly }}!${{ github.sha }}"
@@ -2519,7 +2519,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/centos-8@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_centos_8_x86_64_gel_nightly }}!${{ github.sha }}"
@@ -2546,7 +2546,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/centos-8@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_centos_8_aarch64_gel_nightly }}!${{ github.sha }}"
@@ -2573,7 +2573,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/rockylinux-9@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_rockylinux_9_x86_64_gel_nightly }}!${{ github.sha }}"
@@ -2600,7 +2600,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/rockylinux-9@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_rockylinux_9_aarch64_gel_nightly }}!${{ github.sha }}"
@@ -2627,7 +2627,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linux-x86_64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_linux_x86_64_gel_nightly }}!${{ github.sha }}"
@@ -2655,7 +2655,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linux-aarch64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linux-aarch64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_linux_aarch64_gel_nightly }}!${{ github.sha }}"
@@ -2683,7 +2683,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linuxmusl-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-x86_64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_linuxmusl_x86_64_gel_nightly }}!${{ github.sha }}"
@@ -2712,7 +2712,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linuxmusl-aarch64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-aarch64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "${{ needs.prep.outputs.nightly_linuxmusl_aarch64_gel_nightly }}!${{ github.sha }}"

@@ -105,7 +105,7 @@
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/<< plat_id >>@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-<< plat_id >>:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         <%- if subdist != "nightly" %>
@@ -249,7 +249,7 @@
         path: artifacts/<< plat_id >>
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         <%- if subdist != "" %>
         PKG_SUBDIST: "<< subdist >>"

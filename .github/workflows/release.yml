@@ -29,7 +29,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-buster@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -54,7 +54,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-buster@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -79,7 +79,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bullseye@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -104,7 +104,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bullseye@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -129,7 +129,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bookworm@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -154,7 +154,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/debian-bookworm@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -179,7 +179,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-focal@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -204,7 +204,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-focal@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -229,7 +229,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-jammy@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -254,7 +254,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-jammy@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -279,7 +279,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-noble@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -304,7 +304,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/ubuntu-noble@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -329,7 +329,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/centos-8@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -354,7 +354,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/centos-8@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -379,7 +379,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/rockylinux-9@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -404,7 +404,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/rockylinux-9@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -429,7 +429,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linux-x86_64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -455,7 +455,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linux-aarch64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linux-aarch64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -481,7 +481,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linuxmusl-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-x86_64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -508,7 +508,7 @@ jobs:
 
     steps:
     - name: Build
-      uses: edgedb/edgedb-pkg/integration/linux/build/linuxmusl-aarch64@master
+      uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-aarch64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
         SRC_REF: "6!${{ needs.prep.outputs.branch }}"
@@ -670,7 +670,7 @@ jobs:
         path: artifacts/debian-buster
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "debian"
@@ -689,7 +689,7 @@ jobs:
         path: artifacts/debian-buster
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "debian"
@@ -708,7 +708,7 @@ jobs:
         path: artifacts/debian-bullseye
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "debian"
@@ -727,7 +727,7 @@ jobs:
         path: artifacts/debian-bullseye
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "debian"
@@ -746,7 +746,7 @@ jobs:
         path: artifacts/debian-bookworm
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "debian"
@@ -765,7 +765,7 @@ jobs:
         path: artifacts/debian-bookworm
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "debian"
@@ -784,7 +784,7 @@ jobs:
         path: artifacts/ubuntu-focal
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "ubuntu"
@@ -803,7 +803,7 @@ jobs:
         path: artifacts/ubuntu-focal
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "ubuntu"
@@ -822,7 +822,7 @@ jobs:
         path: artifacts/ubuntu-jammy
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "ubuntu"
@@ -841,7 +841,7 @@ jobs:
         path: artifacts/ubuntu-jammy
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "ubuntu"
@@ -860,7 +860,7 @@ jobs:
         path: artifacts/ubuntu-noble
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "ubuntu"
@@ -879,7 +879,7 @@ jobs:
         path: artifacts/ubuntu-noble
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "ubuntu"
@@ -898,7 +898,7 @@ jobs:
         path: artifacts/centos-8
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "centos"
@@ -917,7 +917,7 @@ jobs:
         path: artifacts/centos-8
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "centos"
@@ -936,7 +936,7 @@ jobs:
         path: artifacts/rockylinux-9
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "rockylinux"
@@ -955,7 +955,7 @@ jobs:
         path: artifacts/rockylinux-9
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "rockylinux"
@@ -974,7 +974,7 @@ jobs:
         path: artifacts/linux-x86_64
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "linux"
@@ -993,7 +993,7 @@ jobs:
         path: artifacts/linux-aarch64
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "linux"
@@ -1012,7 +1012,7 @@ jobs:
         path: artifacts/linuxmusl-x86_64
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "linux"
@@ -1031,7 +1031,7 @@ jobs:
         path: artifacts/linuxmusl-aarch64
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
       env:
         PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
         PKG_PLATFORM: "linux"
