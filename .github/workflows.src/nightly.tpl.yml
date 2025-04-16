@@ -1,12 +1,12 @@
-<% from "build.inc.yml" import workflow -%>
+<% from "build.inc.yml" import workflow, workflow_dispatch -%>
 name: Build Test and Publish Nightly Packages
 
 on:
+  <<- workflow_dispatch() >>
+
   schedule:
     # Deliberately scheduled 4 hours after edgedb nightly
     - cron: "0 5 * * *"
-  workflow_dispatch:
-    inputs: {}
   push:
     branches:
       - nightly

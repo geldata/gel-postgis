@@ -2,7 +2,13 @@ name: Build Test and Publish a Testing Release
 
 on:
   workflow_dispatch:
-    inputs: {}
+    inputs:
+      gelpkg_ref:
+        description: "gel-pkg git ref used to build the packages"
+        default: "master"
+      metapkg_ref:
+        description: "metapkg git ref used to build the packages"
+        default: "master"
 
 jobs:
   prep:
@@ -42,6 +48,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -68,6 +76,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -94,6 +104,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -120,6 +132,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -146,6 +160,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -172,6 +188,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -198,6 +216,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -224,6 +244,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -250,6 +272,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -276,6 +300,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -302,6 +328,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -328,6 +356,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -354,6 +384,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -380,6 +412,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -406,6 +440,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -432,6 +468,8 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         BUILD_IS_RELEASE: "true"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -459,6 +497,8 @@ jobs:
         BUILD_IS_RELEASE: "true"
         BUILD_GENERIC: true
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -486,6 +526,8 @@ jobs:
         BUILD_IS_RELEASE: "true"
         BUILD_GENERIC: true
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -514,6 +556,8 @@ jobs:
         BUILD_GENERIC: true
         PKG_PLATFORM_LIBC: "musl"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -542,6 +586,8 @@ jobs:
         BUILD_GENERIC: true
         PKG_PLATFORM_LIBC: "musl"
         METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:

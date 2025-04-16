@@ -1,9 +1,8 @@
-<% from "build.inc.yml" import workflow -%>
+<% from "build.inc.yml" import workflow, workflow_dispatch -%>
 name: Build Test and Publish a Release
 
 on:
-  workflow_dispatch:
-    inputs: {}
+  <<- workflow_dispatch() >>
 
 jobs:
   <<- workflow(targets, publications, servers, subdist="", publish_all=True) ->>
