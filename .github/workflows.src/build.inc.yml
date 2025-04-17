@@ -1,4 +1,4 @@
-<% macro workflow_dispatch() %>
+<% macro workflow_dispatch(prefer_sccache=False) %>
   workflow_dispatch:
     inputs:
       gelpkg_ref:
@@ -7,6 +7,10 @@
       metapkg_ref:
         description: "metapkg git ref used to build the packages"
         default: "master"
+      enable_sccache:
+        description: "enable sccache for caching of intermediate build objects"
+        type: boolean
+        default: << "true" if prefer_sccache else "false" >>
 <%- endmacro %>
 
 <% macro workflow(targets, publications, servers, subdist="", publish_all=False) %>
@@ -115,6 +119,14 @@
 <% endif %>
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-<< plat_id >>:latest
       env:
@@ -145,6 +157,11 @@
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -219,6 +236,13 @@
         <%- if tgt.family == "generic" %>
         BUILD_GENERIC: true
         <%- endif %>
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: "true"
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
       run: |
         edgedb-pkg/integration/macos/build.sh
 
