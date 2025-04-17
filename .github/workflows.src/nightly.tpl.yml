@@ -2,7 +2,7 @@
 name: Build Test and Publish Nightly Packages
 
 on:
-  <<- workflow_dispatch() >>
+  <<- workflow_dispatch(prefer_sccache=True) >>
 
   schedule:
     # Deliberately scheduled 4 hours after edgedb nightly

@@ -9,6 +9,10 @@ on:
       metapkg_ref:
         description: "metapkg git ref used to build the packages"
         default: "master"
+      enable_sccache:
+        description: "enable sccache for caching of intermediate build objects"
+        type: boolean
+        default: false
 
 jobs:
   prep:
@@ -215,12 +219,12 @@ jobs:
         jq_filter='.packages[] | select(.basename == $NAME) | select(.architecture == $ARCH) | .version_details.metadata.scm_revision | . as $rev | select(($rev != null) and ($REV | startswith($rev)))'
 
         key="debian-buster-x86_64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=buster.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -242,12 +246,12 @@ jobs:
 
 
         key="debian-buster-aarch64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=buster.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -269,12 +273,12 @@ jobs:
 
 
         key="debian-bullseye-x86_64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=bullseye.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -296,12 +300,12 @@ jobs:
 
 
         key="debian-bullseye-aarch64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=bullseye.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -323,12 +327,12 @@ jobs:
 
 
         key="debian-bookworm-x86_64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=bookworm.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -350,12 +354,12 @@ jobs:
 
 
         key="debian-bookworm-aarch64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=bookworm.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -377,12 +381,12 @@ jobs:
 
 
         key="ubuntu-focal-x86_64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=focal.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -404,12 +408,12 @@ jobs:
 
 
         key="ubuntu-focal-aarch64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=focal.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -431,12 +435,12 @@ jobs:
 
 
         key="ubuntu-jammy-x86_64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=jammy.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -458,12 +462,12 @@ jobs:
 
 
         key="ubuntu-jammy-aarch64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=jammy.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -485,12 +489,12 @@ jobs:
 
 
         key="ubuntu-noble-x86_64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=noble.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -512,12 +516,12 @@ jobs:
 
 
         key="ubuntu-noble-aarch64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=noble.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -539,12 +543,12 @@ jobs:
 
 
         key="centos-8-x86_64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=el8.nightly.json
-        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/rpm/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -566,12 +570,12 @@ jobs:
 
 
         key="centos-8-aarch64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=el8.nightly.json
-        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/rpm/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -593,12 +597,12 @@ jobs:
 
 
         key="rockylinux-9-x86_64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=el9.nightly.json
-        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/rpm/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -620,12 +624,12 @@ jobs:
 
 
         key="rockylinux-9-aarch64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=el9.nightly.json
-        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/rpm/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -647,12 +651,12 @@ jobs:
 
 
         key="linux-x86_64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=x86_64-unknown-linux-gnu.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -674,12 +678,12 @@ jobs:
 
 
         key="linux-aarch64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=aarch64-unknown-linux-gnu.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -701,12 +705,12 @@ jobs:
 
 
         key="linuxmusl-x86_64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=x86_64-unknown-linux-musl.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -728,12 +732,12 @@ jobs:
 
 
         key="linuxmusl-aarch64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=aarch64-unknown-linux-musl.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -755,12 +759,12 @@ jobs:
 
 
         key="macos-x86_64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=x86_64-unknown-linux-gnu.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -782,12 +786,12 @@ jobs:
 
 
         key="macos-aarch64-gel-6"
-        name="edgedb-server-6-postgis"
+        name="gel-server-6-postgis"
         val=true
 
 
         idx_file=aarch64-unknown-linux-gnu.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -810,12 +814,12 @@ jobs:
 
 
         key="debian-buster-x86_64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=buster.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -834,7 +838,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -843,12 +847,12 @@ jobs:
 
 
         key="debian-buster-aarch64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=buster.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -867,7 +871,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -876,12 +880,12 @@ jobs:
 
 
         key="debian-bullseye-x86_64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=bullseye.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -900,7 +904,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -909,12 +913,12 @@ jobs:
 
 
         key="debian-bullseye-aarch64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=bullseye.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -933,7 +937,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -942,12 +946,12 @@ jobs:
 
 
         key="debian-bookworm-x86_64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=bookworm.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -966,7 +970,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -975,12 +979,12 @@ jobs:
 
 
         key="debian-bookworm-aarch64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=bookworm.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -999,7 +1003,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1008,12 +1012,12 @@ jobs:
 
 
         key="ubuntu-focal-x86_64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=focal.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1032,7 +1036,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1041,12 +1045,12 @@ jobs:
 
 
         key="ubuntu-focal-aarch64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=focal.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1065,7 +1069,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1074,12 +1078,12 @@ jobs:
 
 
         key="ubuntu-jammy-x86_64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=jammy.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1098,7 +1102,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1107,12 +1111,12 @@ jobs:
 
 
         key="ubuntu-jammy-aarch64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=jammy.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1131,7 +1135,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1140,12 +1144,12 @@ jobs:
 
 
         key="ubuntu-noble-x86_64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=noble.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1164,7 +1168,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1173,12 +1177,12 @@ jobs:
 
 
         key="ubuntu-noble-aarch64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=noble.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1197,7 +1201,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1206,12 +1210,12 @@ jobs:
 
 
         key="centos-8-x86_64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=el8.nightly.json
-        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/rpm/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1230,7 +1234,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1239,12 +1243,12 @@ jobs:
 
 
         key="centos-8-aarch64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=el8.nightly.json
-        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/rpm/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1263,7 +1267,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1272,12 +1276,12 @@ jobs:
 
 
         key="rockylinux-9-x86_64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=el9.nightly.json
-        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/rpm/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1296,7 +1300,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1305,12 +1309,12 @@ jobs:
 
 
         key="rockylinux-9-aarch64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=el9.nightly.json
-        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/rpm/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1329,7 +1333,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1338,12 +1342,12 @@ jobs:
 
 
         key="linux-x86_64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=x86_64-unknown-linux-gnu.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1362,7 +1366,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1371,12 +1375,12 @@ jobs:
 
 
         key="linux-aarch64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=aarch64-unknown-linux-gnu.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1395,7 +1399,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1404,12 +1408,12 @@ jobs:
 
 
         key="linuxmusl-x86_64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=x86_64-unknown-linux-musl.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1428,7 +1432,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1437,12 +1441,12 @@ jobs:
 
 
         key="linuxmusl-aarch64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=aarch64-unknown-linux-musl.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1461,7 +1465,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1470,12 +1474,12 @@ jobs:
 
 
         key="macos-x86_64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=x86_64-unknown-linux-gnu.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1494,7 +1498,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "x86_64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1503,12 +1507,12 @@ jobs:
 
 
         key="macos-aarch64-gel-nightly"
-        name="edgedb-server-nightly-postgis"
+        name="gel-server-nightly-postgis"
         val=true
 
 
         idx_file=aarch64-unknown-linux-gnu.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 
         tmp_file="/tmp/$idx_file"
@@ -1527,7 +1531,7 @@ jobs:
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "aarch64" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -1546,6 +1550,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
@@ -1561,6 +1573,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1575,6 +1592,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
@@ -1590,6 +1615,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1604,6 +1634,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
@@ -1619,6 +1657,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1633,6 +1676,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
@@ -1648,6 +1699,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1662,6 +1718,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
@@ -1677,6 +1741,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1691,6 +1760,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
@@ -1706,6 +1783,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1720,6 +1802,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
@@ -1735,6 +1825,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1749,6 +1844,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
@@ -1764,6 +1867,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1778,6 +1886,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
@@ -1793,6 +1909,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1807,6 +1928,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
@@ -1822,6 +1951,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1836,6 +1970,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
@@ -1851,6 +1993,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1865,6 +2012,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
@@ -1880,6 +2035,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1894,6 +2054,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
@@ -1909,6 +2077,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1923,6 +2096,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
@@ -1938,6 +2119,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1952,6 +2138,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
@@ -1967,6 +2161,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1981,6 +2180,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
@@ -1996,6 +2203,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2010,6 +2222,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linux-x86_64:latest
       env:
@@ -2026,6 +2246,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2040,6 +2265,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linux-aarch64:latest
       env:
@@ -2056,6 +2289,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2070,6 +2308,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-x86_64:latest
       env:
@@ -2087,6 +2333,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2101,6 +2352,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-aarch64:latest
       env:
@@ -2118,6 +2377,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2135,9 +2399,9 @@ jobs:
 
     - uses: actions/checkout@v4
       with:
-        repository: edgedb/edgedb-pkg
-        ref: master
-        path: edgedb-pkg
+        repository: geldata/gel-pkg
+        ref: ${{ inputs.gelpkg_ref }}
+        path: gel-pkg
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -2156,6 +2420,14 @@ jobs:
       run: |
         env HOMEBREW_NO_AUTO_UPDATE=1 brew install libmagic
 
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
@@ -2170,8 +2442,15 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         METAPKG_GIT_CACHE: disabled
         BUILD_GENERIC: true
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: "true"
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
       run: |
-        edgedb-pkg/integration/macos/build.sh
+        gel-pkg/integration/macos/build.sh
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2189,9 +2468,9 @@ jobs:
 
     - uses: actions/checkout@v4
       with:
-        repository: edgedb/edgedb-pkg
-        ref: master
-        path: edgedb-pkg
+        repository: geldata/gel-pkg
+        ref: ${{ inputs.gelpkg_ref }}
+        path: gel-pkg
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -2210,6 +2489,14 @@ jobs:
       run: |
         env HOMEBREW_NO_AUTO_UPDATE=1 brew install libmagic
 
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
@@ -2224,8 +2511,15 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         METAPKG_GIT_CACHE: disabled
         BUILD_GENERIC: true
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: "true"
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
       run: |
-        edgedb-pkg/integration/macos/build.sh
+        gel-pkg/integration/macos/build.sh
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2240,6 +2534,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
@@ -2255,6 +2557,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2269,6 +2576,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
@@ -2284,6 +2599,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2298,6 +2618,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
@@ -2313,6 +2641,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2327,6 +2660,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
@@ -2342,6 +2683,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2356,6 +2702,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
@@ -2371,6 +2725,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2385,6 +2744,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
@@ -2400,6 +2767,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2414,6 +2786,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
@@ -2429,6 +2809,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2443,6 +2828,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
@@ -2458,6 +2851,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2472,6 +2870,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
@@ -2487,6 +2893,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2501,6 +2912,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
@@ -2516,6 +2935,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2530,6 +2954,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
@@ -2545,6 +2977,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2559,6 +2996,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
@@ -2574,6 +3019,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2588,6 +3038,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
@@ -2603,6 +3061,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2617,6 +3080,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
@@ -2632,6 +3103,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2646,6 +3122,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
@@ -2661,6 +3145,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2675,6 +3164,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
@@ -2690,6 +3187,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2704,6 +3206,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linux-x86_64:latest
       env:
@@ -2720,6 +3230,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2734,6 +3249,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linux-aarch64:latest
       env:
@@ -2750,6 +3273,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2764,6 +3292,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-x86_64:latest
       env:
@@ -2781,6 +3317,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2795,6 +3336,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-aarch64:latest
       env:
@@ -2812,6 +3361,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2829,9 +3383,9 @@ jobs:
 
     - uses: actions/checkout@v4
       with:
-        repository: edgedb/edgedb-pkg
-        ref: master
-        path: edgedb-pkg
+        repository: geldata/gel-pkg
+        ref: ${{ inputs.gelpkg_ref }}
+        path: gel-pkg
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -2850,6 +3404,14 @@ jobs:
       run: |
         env HOMEBREW_NO_AUTO_UPDATE=1 brew install libmagic
 
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
@@ -2864,8 +3426,15 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         METAPKG_GIT_CACHE: disabled
         BUILD_GENERIC: true
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: "true"
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
       run: |
-        edgedb-pkg/integration/macos/build.sh
+        gel-pkg/integration/macos/build.sh
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -2883,9 +3452,9 @@ jobs:
 
     - uses: actions/checkout@v4
       with:
-        repository: edgedb/edgedb-pkg
-        ref: master
-        path: edgedb-pkg
+        repository: geldata/gel-pkg
+        ref: ${{ inputs.gelpkg_ref }}
+        path: gel-pkg
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -2904,6 +3473,14 @@ jobs:
       run: |
         env HOMEBREW_NO_AUTO_UPDATE=1 brew install libmagic
 
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
@@ -2918,8 +3495,15 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         METAPKG_GIT_CACHE: disabled
         BUILD_GENERIC: true
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: "true"
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
       run: |
-        edgedb-pkg/integration/macos/build.sh
+        gel-pkg/integration/macos/build.sh
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:

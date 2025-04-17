@@ -9,6 +9,10 @@ on:
       metapkg_ref:
         description: "metapkg git ref used to build the packages"
         default: "master"
+      enable_sccache:
+        description: "enable sccache for caching of intermediate build objects"
+        type: boolean
+        default: false
 
 jobs:
   prep:
@@ -34,6 +38,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
@@ -49,6 +61,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -61,6 +78,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
@@ -76,6 +101,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -88,6 +118,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
@@ -103,6 +141,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -115,6 +158,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
@@ -130,6 +181,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -142,6 +198,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
@@ -157,6 +221,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -169,6 +238,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
@@ -184,6 +261,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -196,6 +278,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
@@ -211,6 +301,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -223,6 +318,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
@@ -238,6 +341,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -250,6 +358,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
@@ -265,6 +381,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -277,6 +398,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
@@ -292,6 +421,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -304,6 +438,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
@@ -319,6 +461,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -331,6 +478,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
@@ -346,6 +501,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -358,6 +518,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
@@ -373,6 +541,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -385,6 +558,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
@@ -400,6 +581,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -412,6 +598,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
@@ -427,6 +621,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -439,6 +638,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
@@ -454,6 +661,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -466,6 +678,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linux-x86_64:latest
       env:
@@ -482,6 +702,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -494,6 +719,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linux-aarch64:latest
       env:
@@ -510,6 +743,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -522,6 +760,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-x86_64:latest
       env:
@@ -539,6 +785,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -551,6 +802,14 @@ jobs:
 
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-aarch64:latest
       env:
@@ -568,6 +827,11 @@ jobs:
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -583,9 +847,9 @@ jobs:
 
     - uses: actions/checkout@v4
       with:
-        repository: edgedb/edgedb-pkg
-        ref: master
-        path: edgedb-pkg
+        repository: geldata/gel-pkg
+        ref: ${{ inputs.gelpkg_ref }}
+        path: gel-pkg
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -603,6 +867,14 @@ jobs:
       if: true
       run: |
         env HOMEBREW_NO_AUTO_UPDATE=1 brew install libmagic
+
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
     - name: Build
       env:
@@ -618,8 +890,15 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         METAPKG_GIT_CACHE: disabled
         BUILD_GENERIC: true
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: "true"
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
       run: |
-        edgedb-pkg/integration/macos/build.sh
+        gel-pkg/integration/macos/build.sh
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -635,9 +914,9 @@ jobs:
 
     - uses: actions/checkout@v4
       with:
-        repository: edgedb/edgedb-pkg
-        ref: master
-        path: edgedb-pkg
+        repository: geldata/gel-pkg
+        ref: ${{ inputs.gelpkg_ref }}
+        path: gel-pkg
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -656,6 +935,14 @@ jobs:
       run: |
         env HOMEBREW_NO_AUTO_UPDATE=1 brew install libmagic
 
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
@@ -670,8 +957,15 @@ jobs:
         EXTRA_OPTIMIZATIONS: "true"
         METAPKG_GIT_CACHE: disabled
         BUILD_GENERIC: true
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: "true"
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
       run: |
-        edgedb-pkg/integration/macos/build.sh
+        gel-pkg/integration/macos/build.sh
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -1097,18 +1391,18 @@ jobs:
 
     - uses: actions/checkout@v4
       with:
-        repository: edgedb/edgedb-pkg
+        repository: geldata/gel-pkg
         ref: master
-        path: edgedb-pkg
+        path: gel-pkg
 
     - name: Describe
       id: describe
-      uses: edgedb/edgedb-pkg/integration/actions/describe-artifact@master
+      uses: geldata/gel-pkg/integration/actions/describe-artifact@master
       with:
         target: macos-x86_64
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64@latest
       env:
         PKG_PLATFORM: "macos"
         PKG_PLATFORM_VERSION: "x86_64"
@@ -1126,18 +1420,18 @@ jobs:
 
     - uses: actions/checkout@v4
       with:
-        repository: edgedb/edgedb-pkg
+        repository: geldata/gel-pkg
         ref: master
-        path: edgedb-pkg
+        path: gel-pkg
 
     - name: Describe
       id: describe
-      uses: edgedb/edgedb-pkg/integration/actions/describe-artifact@master
+      uses: geldata/gel-pkg/integration/actions/describe-artifact@master
       with:
         target: macos-aarch64
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64@latest
       env:
         PKG_PLATFORM: "macos"
         PKG_PLATFORM_VERSION: "aarch64"

@@ -1,4 +1,4 @@
-<% macro workflow_dispatch() %>
+<% macro workflow_dispatch(prefer_sccache=False) %>
   workflow_dispatch:
     inputs:
       gelpkg_ref:
@@ -7,6 +7,10 @@
       metapkg_ref:
         description: "metapkg git ref used to build the packages"
         default: "master"
+      enable_sccache:
+        description: "enable sccache for caching of intermediate build objects"
+        type: boolean
+        default: << "true" if prefer_sccache else "false" >>
 <%- endmacro %>
 
 <% macro workflow(targets, publications, servers, subdist="", publish_all=False) %>
@@ -47,24 +51,24 @@
 <%- set server = server.replace(".", "-") -%>
 <% for tgt in targets.linux + targets.macos %>
         key="<< tgt.name >>-gel-<< server >>"
-        name="edgedb-server-<< server >>-postgis"
+        name="gel-server-<< server >>-postgis"
         val=true
 
 <% if tgt.family == "debian" %>
         idx_file=<< tgt.platform_version >>.nightly.json
-        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/apt/.jsonindexes/$idx_file
 
 <% elif tgt.family == "redhat" %>
         idx_file=el<< tgt.platform_version >>.nightly.json
-        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/rpm/.jsonindexes/$idx_file
 
 <% elif tgt.family == "generic" %>
         idx_file=<< tgt.platform_version >>-unknown-linux-<< "{}".format(tgt.platform_libc) if tgt.platform_libc else "gnu" >>.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 <% elif tgt.platform == "macos" %>
         idx_file=<< tgt.platform_version >>-apple-darwin.nightly.json
-        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+        url=https://packages.geldata.com/archive/.jsonindexes/$idx_file
 
 <% endif %>
         tmp_file="/tmp/$idx_file"
@@ -83,7 +87,7 @@
         echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
 
 <% if server == "nightly" %>
-        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "<< tgt.arch >>" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version | split("+")[0]')
+        nightly_ver=$(< "$tmp_file" jq -r --arg ARCH "<< tgt.arch >>" 'first(.packages | sort_by(.build_date) | reverse | .[] | select(.basename == "gel-server") | select(.architecture == $ARCH)).version_details.metadata.scm_revision')
         if [ -z "$nightly_ver" ]; then
             nightly_ver=INVALID
         fi
@@ -115,6 +119,14 @@
 <% endif %>
 
     steps:
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Build
       uses: docker://ghcr.io/geldata/gelpkg-build-<< plat_id >>:latest
       env:
@@ -145,6 +157,11 @@
         METAPKG_GIT_CACHE: disabled
         GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
         METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: ${{ inputs.enable_sccache }}
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -173,9 +190,9 @@
 
     - uses: actions/checkout@v4
       with:
-        repository: edgedb/edgedb-pkg
-        ref: master
-        path: edgedb-pkg
+        repository: geldata/gel-pkg
+        ref: ${{ inputs.gelpkg_ref }}
+        path: gel-pkg
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -193,6 +210,14 @@
       if: << 'false' if tgt.runs_on and 'self-hosted' in tgt.runs_on else 'true' >>
       run: |
         env HOMEBREW_NO_AUTO_UPDATE=1 brew install libmagic
+
+    - name: Get cache config
+      id: gha_cache
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_RESULTS_URL', process.env.ACTIONS_RESULTS_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
     - name: Build
       env:
@@ -219,8 +244,15 @@
         <%- if tgt.family == "generic" %>
         BUILD_GENERIC: true
         <%- endif %>
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+        ENABLE_SCCACHE: "true"
+        ACTIONS_RESULTS_URL: ${{ env.ACTIONS_RESULTS_URL }}
+        ACTIONS_RUNTIME_TOKEN: ${{ env.ACTIONS_RUNTIME_TOKEN }}
+        SCCACHE_GHA_ENABLED: on
+        ACTIONS_CACHE_SERVICE_V2: on
       run: |
-        edgedb-pkg/integration/macos/build.sh
+        gel-pkg/integration/macos/build.sh
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
@@ -299,18 +331,18 @@
 
     - uses: actions/checkout@v4
       with:
-        repository: edgedb/edgedb-pkg
+        repository: geldata/gel-pkg
         ref: master
-        path: edgedb-pkg
+        path: gel-pkg
 
     - name: Describe
       id: describe
-      uses: edgedb/edgedb-pkg/integration/actions/describe-artifact@master
+      uses: geldata/gel-pkg/integration/actions/describe-artifact@master
       with:
         target: << plat_id >>
 
     - name: Publish
-      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64@latest
       env:
         <%- if subdist != "" %>
         PKG_SUBDIST: "<< subdist >>"
