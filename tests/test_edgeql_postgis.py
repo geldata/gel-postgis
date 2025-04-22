@@ -880,8 +880,6 @@ class TestEdgeQLPostgis(tb.QueryTestCase):
     # FIXME: This function crashed the server on a CI test build.
     # What's up with that?
     BROKEN = {
-        'relate',
-        'simplifypolygonhull',
     }
 
     async def test_edgeql_postgis_bulk_06(self):
