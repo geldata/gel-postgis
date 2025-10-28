@@ -91,6 +91,73 @@ jobs:
 
 
 
+      if_debian_buster_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_buster_x86_64_gel_7_rc_3 }}
+
+
+      if_debian_buster_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_buster_aarch64_gel_7_rc_3 }}
+
+
+      if_debian_bullseye_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_bullseye_x86_64_gel_7_rc_3 }}
+
+
+      if_debian_bullseye_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_bullseye_aarch64_gel_7_rc_3 }}
+
+
+      if_debian_bookworm_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_bookworm_x86_64_gel_7_rc_3 }}
+
+
+      if_debian_bookworm_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_bookworm_aarch64_gel_7_rc_3 }}
+
+
+      if_ubuntu_focal_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_focal_x86_64_gel_7_rc_3 }}
+
+
+      if_ubuntu_focal_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_focal_aarch64_gel_7_rc_3 }}
+
+
+      if_ubuntu_jammy_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_jammy_x86_64_gel_7_rc_3 }}
+
+
+      if_ubuntu_jammy_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_jammy_aarch64_gel_7_rc_3 }}
+
+
+      if_ubuntu_noble_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_noble_x86_64_gel_7_rc_3 }}
+
+
+      if_ubuntu_noble_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_noble_aarch64_gel_7_rc_3 }}
+
+
+      if_centos_8_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_centos_8_x86_64_gel_7_rc_3 }}
+
+
+      if_centos_8_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_centos_8_aarch64_gel_7_rc_3 }}
+
+
+      if_rockylinux_9_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_rockylinux_9_x86_64_gel_7_rc_3 }}
+
+
+      if_rockylinux_9_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_rockylinux_9_aarch64_gel_7_rc_3 }}
+
+
+      if_linux_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_linux_x86_64_gel_7_rc_3 }}
+
+
+      if_linux_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_linux_aarch64_gel_7_rc_3 }}
+
+
+      if_linuxmusl_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_linuxmusl_x86_64_gel_7_rc_3 }}
+
+
+      if_linuxmusl_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_linuxmusl_aarch64_gel_7_rc_3 }}
+
+
+      if_macos_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_macos_x86_64_gel_7_rc_3 }}
+
+
+      if_macos_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_macos_aarch64_gel_7_rc_3 }}
+
+
+
       if_debian_buster_x86_64_gel_nightly: ${{ steps.scm.outputs.if_debian_buster_x86_64_gel_nightly }}
 
       nightly_debian_buster_x86_64_gel_nightly: ${{ steps.scm.outputs.nightly_debian_buster_x86_64_gel_nightly }}
@@ -790,6 +857,601 @@ jobs:
 
         key="macos-aarch64-gel-6"
         name="edgedb-server-6-postgis"
+        val=true
+
+
+        idx_file=aarch64-unknown-linux-gnu.nightly.json
+        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "aarch64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+
+        key="debian-buster-x86_64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=buster.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "x86_64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="debian-buster-aarch64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=buster.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "aarch64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="debian-bullseye-x86_64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=bullseye.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "x86_64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="debian-bullseye-aarch64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=bullseye.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "aarch64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="debian-bookworm-x86_64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=bookworm.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "x86_64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="debian-bookworm-aarch64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=bookworm.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "aarch64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="ubuntu-focal-x86_64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=focal.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "x86_64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="ubuntu-focal-aarch64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=focal.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "aarch64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="ubuntu-jammy-x86_64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=jammy.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "x86_64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="ubuntu-jammy-aarch64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=jammy.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "aarch64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="ubuntu-noble-x86_64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=noble.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "x86_64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="ubuntu-noble-aarch64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=noble.nightly.json
+        url=https://packages.edgedb.com/apt/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "aarch64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="centos-8-x86_64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=el8.nightly.json
+        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "x86_64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="centos-8-aarch64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=el8.nightly.json
+        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "aarch64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="rockylinux-9-x86_64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=el9.nightly.json
+        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "x86_64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="rockylinux-9-aarch64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=el9.nightly.json
+        url=https://packages.edgedb.com/rpm/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "aarch64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="linux-x86_64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=x86_64-unknown-linux-gnu.nightly.json
+        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "x86_64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="linux-aarch64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=aarch64-unknown-linux-gnu.nightly.json
+        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "aarch64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="linuxmusl-x86_64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=x86_64-unknown-linux-musl.nightly.json
+        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "x86_64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="linuxmusl-aarch64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=aarch64-unknown-linux-musl.nightly.json
+        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "aarch64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="macos-x86_64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
+        val=true
+
+
+        idx_file=x86_64-unknown-linux-gnu.nightly.json
+        url=https://packages.edgedb.com/archive/.jsonindexes/$idx_file
+
+
+        tmp_file="/tmp/$idx_file"
+
+        if [ ! -e "$tmp_file" ]; then
+          curl --fail -o $tmp_file -s $url || true
+        fi
+        if [ -e "$tmp_file" ]; then
+          out=$(< "$tmp_file" jq -r --arg NAME "$name" --arg REV "$rev" --arg ARCH "x86_64" "$jq_filter")
+          if [ -n "$out" ]; then
+            echo "Skip rebuilding existing ${key}"
+            val=false
+          fi
+        fi
+
+        echo if_${key//-/_}="$val" >> $GITHUB_OUTPUT
+
+
+
+
+        key="macos-aarch64-gel-7-rc-3"
+        name="edgedb-server-7-rc-3-postgis"
         val=true
 
 
@@ -2239,6 +2901,700 @@ jobs:
         name: builds-macos-aarch64-gel-6
         path: artifacts/macos-aarch64
 
+  build-debian-buster-x86_64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
+    needs: prep
+
+    if: needs.prep.outputs.if_debian_buster_x86_64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "buster"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-debian-buster-x86_64-gel-7-rc-3
+        path: artifacts/debian-buster
+
+  build-debian-buster-aarch64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
+    needs: prep
+
+    if: needs.prep.outputs.if_debian_buster_aarch64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "buster"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-debian-buster-aarch64-gel-7-rc-3
+        path: artifacts/debian-buster
+
+  build-debian-bullseye-x86_64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
+    needs: prep
+
+    if: needs.prep.outputs.if_debian_bullseye_x86_64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "bullseye"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-debian-bullseye-x86_64-gel-7-rc-3
+        path: artifacts/debian-bullseye
+
+  build-debian-bullseye-aarch64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
+    needs: prep
+
+    if: needs.prep.outputs.if_debian_bullseye_aarch64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "bullseye"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-debian-bullseye-aarch64-gel-7-rc-3
+        path: artifacts/debian-bullseye
+
+  build-debian-bookworm-x86_64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
+    needs: prep
+
+    if: needs.prep.outputs.if_debian_bookworm_x86_64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "bookworm"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-debian-bookworm-x86_64-gel-7-rc-3
+        path: artifacts/debian-bookworm
+
+  build-debian-bookworm-aarch64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
+    needs: prep
+
+    if: needs.prep.outputs.if_debian_bookworm_aarch64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "bookworm"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-debian-bookworm-aarch64-gel-7-rc-3
+        path: artifacts/debian-bookworm
+
+  build-ubuntu-focal-x86_64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
+    needs: prep
+
+    if: needs.prep.outputs.if_ubuntu_focal_x86_64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "focal"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-ubuntu-focal-x86_64-gel-7-rc-3
+        path: artifacts/ubuntu-focal
+
+  build-ubuntu-focal-aarch64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
+    needs: prep
+
+    if: needs.prep.outputs.if_ubuntu_focal_aarch64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "focal"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-ubuntu-focal-aarch64-gel-7-rc-3
+        path: artifacts/ubuntu-focal
+
+  build-ubuntu-jammy-x86_64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
+    needs: prep
+
+    if: needs.prep.outputs.if_ubuntu_jammy_x86_64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "jammy"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-ubuntu-jammy-x86_64-gel-7-rc-3
+        path: artifacts/ubuntu-jammy
+
+  build-ubuntu-jammy-aarch64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
+    needs: prep
+
+    if: needs.prep.outputs.if_ubuntu_jammy_aarch64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "jammy"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-ubuntu-jammy-aarch64-gel-7-rc-3
+        path: artifacts/ubuntu-jammy
+
+  build-ubuntu-noble-x86_64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
+    needs: prep
+
+    if: needs.prep.outputs.if_ubuntu_noble_x86_64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "noble"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-ubuntu-noble-x86_64-gel-7-rc-3
+        path: artifacts/ubuntu-noble
+
+  build-ubuntu-noble-aarch64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
+    needs: prep
+
+    if: needs.prep.outputs.if_ubuntu_noble_aarch64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "noble"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-ubuntu-noble-aarch64-gel-7-rc-3
+        path: artifacts/ubuntu-noble
+
+  build-centos-8-x86_64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
+    needs: prep
+
+    if: needs.prep.outputs.if_centos_8_x86_64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "centos"
+        PKG_PLATFORM_VERSION: "8"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-centos-8-x86_64-gel-7-rc-3
+        path: artifacts/centos-8
+
+  build-centos-8-aarch64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
+    needs: prep
+
+    if: needs.prep.outputs.if_centos_8_aarch64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "centos"
+        PKG_PLATFORM_VERSION: "8"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-centos-8-aarch64-gel-7-rc-3
+        path: artifacts/centos-8
+
+  build-rockylinux-9-x86_64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
+    needs: prep
+
+    if: needs.prep.outputs.if_rockylinux_9_x86_64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "rockylinux"
+        PKG_PLATFORM_VERSION: "9"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-rockylinux-9-x86_64-gel-7-rc-3
+        path: artifacts/rockylinux-9
+
+  build-rockylinux-9-aarch64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
+    needs: prep
+
+    if: needs.prep.outputs.if_rockylinux_9_aarch64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "rockylinux"
+        PKG_PLATFORM_VERSION: "9"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-rockylinux-9-aarch64-gel-7-rc-3
+        path: artifacts/rockylinux-9
+
+  build-linux-x86_64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
+    needs: prep
+
+    if: needs.prep.outputs.if_linux_x86_64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-linux-x86_64:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "linux"
+        PKG_PLATFORM_VERSION: "x86_64"
+        EXTRA_OPTIMIZATIONS: "true"
+        BUILD_GENERIC: true
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-linux-x86_64-gel-7-rc-3
+        path: artifacts/linux-x86_64
+
+  build-linux-aarch64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
+    needs: prep
+
+    if: needs.prep.outputs.if_linux_aarch64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-linux-aarch64:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "linux"
+        PKG_PLATFORM_VERSION: "aarch64"
+        EXTRA_OPTIMIZATIONS: "true"
+        BUILD_GENERIC: true
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-linux-aarch64-gel-7-rc-3
+        path: artifacts/linux-aarch64
+
+  build-linuxmusl-x86_64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
+    needs: prep
+
+    if: needs.prep.outputs.if_linuxmusl_x86_64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-x86_64:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "linux"
+        PKG_PLATFORM_VERSION: "x86_64"
+        EXTRA_OPTIMIZATIONS: "true"
+        BUILD_GENERIC: true
+        PKG_PLATFORM_LIBC: "musl"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-linuxmusl-x86_64-gel-7-rc-3
+        path: artifacts/linuxmusl-x86_64
+
+  build-linuxmusl-aarch64-gel-7-rc-3:
+    runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
+    needs: prep
+
+    if: needs.prep.outputs.if_linuxmusl_aarch64_gel_7_rc_3 == 'true'
+
+
+    steps:
+    - name: Build
+      uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-aarch64:latest
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "linux"
+        PKG_PLATFORM_VERSION: "aarch64"
+        EXTRA_OPTIMIZATIONS: "true"
+        BUILD_GENERIC: true
+        PKG_PLATFORM_LIBC: "musl"
+        METAPKG_GIT_CACHE: disabled
+        GEL_PKG_REF: ${{ inputs.gelpkg_ref }}
+        METAPKG_REF: ${{ inputs.metapkg_ref }}
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-linuxmusl-aarch64-gel-7-rc-3
+        path: artifacts/linuxmusl-aarch64
+
+  build-macos-x86_64-gel-7-rc-3:
+    runs-on: ['macos-13']
+    needs: prep
+
+    if: needs.prep.outputs.if_macos_x86_64_gel_7_rc_3 == 'true'
+
+
+    steps:
+
+    - uses: actions/checkout@v4
+      with:
+        repository: edgedb/edgedb-pkg
+        ref: master
+        path: edgedb-pkg
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      if: true
+      with:
+        python-version: "3.x"
+
+    - name: Set up NodeJS
+      uses: actions/setup-node@v4
+      if: true
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      if: true
+      run: |
+        env HOMEBREW_NO_AUTO_UPDATE=1 brew install libmagic
+
+    - name: Build
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "macos"
+        PKG_PLATFORM_VERSION: "x86_64"
+        PKG_PLATFORM_ARCH: "x86_64"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        BUILD_GENERIC: true
+      run: |
+        edgedb-pkg/integration/macos/build.sh
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-macos-x86_64-gel-7-rc-3
+        path: artifacts/macos-x86_64
+
+  build-macos-aarch64-gel-7-rc-3:
+    runs-on: ['macos-14']
+    needs: prep
+
+    if: needs.prep.outputs.if_macos_aarch64_gel_7_rc_3 == 'true'
+
+
+    steps:
+
+    - uses: actions/checkout@v4
+      with:
+        repository: edgedb/edgedb-pkg
+        ref: master
+        path: edgedb-pkg
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      if: true
+      with:
+        python-version: "3.x"
+
+    - name: Set up NodeJS
+      uses: actions/setup-node@v4
+      if: true
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      if: true
+      run: |
+        env HOMEBREW_NO_AUTO_UPDATE=1 brew install libmagic
+
+    - name: Build
+      env:
+        PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
+        SRC_REF: "7-rc-3!${{ github.sha }}"
+        PKG_REVISION: "<current-date>"
+        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_COMPRESSION: "zstd,zip"
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "macos"
+        PKG_PLATFORM_VERSION: "aarch64"
+        PKG_PLATFORM_ARCH: "aarch64"
+        EXTRA_OPTIMIZATIONS: "true"
+        METAPKG_GIT_CACHE: disabled
+        BUILD_GENERIC: true
+      run: |
+        edgedb-pkg/integration/macos/build.sh
+
+    - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
+      with:
+        name: builds-macos-aarch64-gel-7-rc-3
+        path: artifacts/macos-aarch64
+
   build-debian-buster-x86_64-gel-nightly:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
     needs: prep
@@ -3333,6 +4689,406 @@ jobs:
         PKG_PLATFORM_LIBC: "musl"
         PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
 
+  publish-debian-buster-x86_64-gel-7-rc-3:
+    needs: [build-debian-buster-x86_64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-debian-buster-x86_64-gel-7-rc-3
+        path: artifacts/debian-buster
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "buster"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-debian-buster-aarch64-gel-7-rc-3:
+    needs: [build-debian-buster-aarch64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-debian-buster-aarch64-gel-7-rc-3
+        path: artifacts/debian-buster
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "buster"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-debian-bullseye-x86_64-gel-7-rc-3:
+    needs: [build-debian-bullseye-x86_64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-debian-bullseye-x86_64-gel-7-rc-3
+        path: artifacts/debian-bullseye
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "bullseye"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-debian-bullseye-aarch64-gel-7-rc-3:
+    needs: [build-debian-bullseye-aarch64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-debian-bullseye-aarch64-gel-7-rc-3
+        path: artifacts/debian-bullseye
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "bullseye"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-debian-bookworm-x86_64-gel-7-rc-3:
+    needs: [build-debian-bookworm-x86_64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-debian-bookworm-x86_64-gel-7-rc-3
+        path: artifacts/debian-bookworm
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "bookworm"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-debian-bookworm-aarch64-gel-7-rc-3:
+    needs: [build-debian-bookworm-aarch64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-debian-bookworm-aarch64-gel-7-rc-3
+        path: artifacts/debian-bookworm
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "debian"
+        PKG_PLATFORM_VERSION: "bookworm"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-ubuntu-focal-x86_64-gel-7-rc-3:
+    needs: [build-ubuntu-focal-x86_64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-ubuntu-focal-x86_64-gel-7-rc-3
+        path: artifacts/ubuntu-focal
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "focal"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-ubuntu-focal-aarch64-gel-7-rc-3:
+    needs: [build-ubuntu-focal-aarch64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-ubuntu-focal-aarch64-gel-7-rc-3
+        path: artifacts/ubuntu-focal
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "focal"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-ubuntu-jammy-x86_64-gel-7-rc-3:
+    needs: [build-ubuntu-jammy-x86_64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-ubuntu-jammy-x86_64-gel-7-rc-3
+        path: artifacts/ubuntu-jammy
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "jammy"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-ubuntu-jammy-aarch64-gel-7-rc-3:
+    needs: [build-ubuntu-jammy-aarch64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-ubuntu-jammy-aarch64-gel-7-rc-3
+        path: artifacts/ubuntu-jammy
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "jammy"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-ubuntu-noble-x86_64-gel-7-rc-3:
+    needs: [build-ubuntu-noble-x86_64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-ubuntu-noble-x86_64-gel-7-rc-3
+        path: artifacts/ubuntu-noble
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "noble"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-ubuntu-noble-aarch64-gel-7-rc-3:
+    needs: [build-ubuntu-noble-aarch64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-ubuntu-noble-aarch64-gel-7-rc-3
+        path: artifacts/ubuntu-noble
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "ubuntu"
+        PKG_PLATFORM_VERSION: "noble"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-centos-8-x86_64-gel-7-rc-3:
+    needs: [build-centos-8-x86_64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-centos-8-x86_64-gel-7-rc-3
+        path: artifacts/centos-8
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "centos"
+        PKG_PLATFORM_VERSION: "8"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-centos-8-aarch64-gel-7-rc-3:
+    needs: [build-centos-8-aarch64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-centos-8-aarch64-gel-7-rc-3
+        path: artifacts/centos-8
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "centos"
+        PKG_PLATFORM_VERSION: "8"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-rockylinux-9-x86_64-gel-7-rc-3:
+    needs: [build-rockylinux-9-x86_64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-rockylinux-9-x86_64-gel-7-rc-3
+        path: artifacts/rockylinux-9
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "rockylinux"
+        PKG_PLATFORM_VERSION: "9"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-rockylinux-9-aarch64-gel-7-rc-3:
+    needs: [build-rockylinux-9-aarch64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-rockylinux-9-aarch64-gel-7-rc-3
+        path: artifacts/rockylinux-9
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "rockylinux"
+        PKG_PLATFORM_VERSION: "9"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-linux-x86_64-gel-7-rc-3:
+    needs: [build-linux-x86_64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-linux-x86_64-gel-7-rc-3
+        path: artifacts/linux-x86_64
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "linux"
+        PKG_PLATFORM_VERSION: "x86_64"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-linux-aarch64-gel-7-rc-3:
+    needs: [build-linux-aarch64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-linux-aarch64-gel-7-rc-3
+        path: artifacts/linux-aarch64
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "linux"
+        PKG_PLATFORM_VERSION: "aarch64"
+        PKG_PLATFORM_LIBC: ""
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-linuxmusl-x86_64-gel-7-rc-3:
+    needs: [build-linuxmusl-x86_64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-linuxmusl-x86_64-gel-7-rc-3
+        path: artifacts/linuxmusl-x86_64
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "linux"
+        PKG_PLATFORM_VERSION: "x86_64"
+        PKG_PLATFORM_LIBC: "musl"
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-linuxmusl-aarch64-gel-7-rc-3:
+    needs: [build-linuxmusl-aarch64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-linuxmusl-aarch64-gel-7-rc-3
+        path: artifacts/linuxmusl-aarch64
+
+    - name: Publish
+      uses: docker://ghcr.io/geldata/gelpkg-upload-linux-x86_64:latest
+      env:
+        PKG_SUBDIST: "nightly"
+        PACKAGE_SERVER: sftp://uploader@package-upload.edgedb.net:22/
+        PKG_PLATFORM: "linux"
+        PKG_PLATFORM_VERSION: "aarch64"
+        PKG_PLATFORM_LIBC: "musl"
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
   publish-debian-buster-x86_64-gel-nightly:
     needs: [build-debian-buster-x86_64-gel-nightly]
     runs-on: ubuntu-latest
@@ -3793,6 +5549,66 @@ jobs:
         PKG_PLATFORM_VERSION: "aarch64"
         PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
 
+  publish-macos-x86_64-gel-7-rc-3:
+    needs: [build-macos-x86_64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-macos-x86_64-gel-7-rc-3
+        path: artifacts/macos-x86_64
+
+    - uses: actions/checkout@v4
+      with:
+        repository: edgedb/edgedb-pkg
+        ref: master
+        path: edgedb-pkg
+
+    - name: Describe
+      id: describe
+      uses: edgedb/edgedb-pkg/integration/actions/describe-artifact@master
+      with:
+        target: macos-x86_64
+
+    - name: Publish
+      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      env:
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "macos"
+        PKG_PLATFORM_VERSION: "x86_64"
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
+  publish-macos-aarch64-gel-7-rc-3:
+    needs: [build-macos-aarch64-gel-7-rc-3]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  # v4.1.8
+      with:
+        name: builds-macos-aarch64-gel-7-rc-3
+        path: artifacts/macos-aarch64
+
+    - uses: actions/checkout@v4
+      with:
+        repository: edgedb/edgedb-pkg
+        ref: master
+        path: edgedb-pkg
+
+    - name: Describe
+      id: describe
+      uses: edgedb/edgedb-pkg/integration/actions/describe-artifact@master
+      with:
+        target: macos-aarch64
+
+    - name: Publish
+      uses: edgedb/edgedb-pkg/integration/linux/upload/linux-x86_64@master
+      env:
+        PKG_SUBDIST: "nightly"
+        PKG_PLATFORM: "macos"
+        PKG_PLATFORM_VERSION: "aarch64"
+        PACKAGE_UPLOAD_SSH_KEY: "${{ secrets.PACKAGE_UPLOAD_SSH_KEY }}"
+
   publish-macos-x86_64-gel-nightly:
     needs: [build-macos-x86_64-gel-nightly]
     runs-on: ubuntu-latest
@@ -3903,6 +5719,50 @@ jobs:
       - publish-macos-x86_64-gel-6
       - build-macos-aarch64-gel-6
       - publish-macos-aarch64-gel-6
+      - build-debian-buster-x86_64-gel-7-rc-3
+      - publish-debian-buster-x86_64-gel-7-rc-3
+      - build-debian-buster-aarch64-gel-7-rc-3
+      - publish-debian-buster-aarch64-gel-7-rc-3
+      - build-debian-bullseye-x86_64-gel-7-rc-3
+      - publish-debian-bullseye-x86_64-gel-7-rc-3
+      - build-debian-bullseye-aarch64-gel-7-rc-3
+      - publish-debian-bullseye-aarch64-gel-7-rc-3
+      - build-debian-bookworm-x86_64-gel-7-rc-3
+      - publish-debian-bookworm-x86_64-gel-7-rc-3
+      - build-debian-bookworm-aarch64-gel-7-rc-3
+      - publish-debian-bookworm-aarch64-gel-7-rc-3
+      - build-ubuntu-focal-x86_64-gel-7-rc-3
+      - publish-ubuntu-focal-x86_64-gel-7-rc-3
+      - build-ubuntu-focal-aarch64-gel-7-rc-3
+      - publish-ubuntu-focal-aarch64-gel-7-rc-3
+      - build-ubuntu-jammy-x86_64-gel-7-rc-3
+      - publish-ubuntu-jammy-x86_64-gel-7-rc-3
+      - build-ubuntu-jammy-aarch64-gel-7-rc-3
+      - publish-ubuntu-jammy-aarch64-gel-7-rc-3
+      - build-ubuntu-noble-x86_64-gel-7-rc-3
+      - publish-ubuntu-noble-x86_64-gel-7-rc-3
+      - build-ubuntu-noble-aarch64-gel-7-rc-3
+      - publish-ubuntu-noble-aarch64-gel-7-rc-3
+      - build-centos-8-x86_64-gel-7-rc-3
+      - publish-centos-8-x86_64-gel-7-rc-3
+      - build-centos-8-aarch64-gel-7-rc-3
+      - publish-centos-8-aarch64-gel-7-rc-3
+      - build-rockylinux-9-x86_64-gel-7-rc-3
+      - publish-rockylinux-9-x86_64-gel-7-rc-3
+      - build-rockylinux-9-aarch64-gel-7-rc-3
+      - publish-rockylinux-9-aarch64-gel-7-rc-3
+      - build-linux-x86_64-gel-7-rc-3
+      - publish-linux-x86_64-gel-7-rc-3
+      - build-linux-aarch64-gel-7-rc-3
+      - publish-linux-aarch64-gel-7-rc-3
+      - build-linuxmusl-x86_64-gel-7-rc-3
+      - publish-linuxmusl-x86_64-gel-7-rc-3
+      - build-linuxmusl-aarch64-gel-7-rc-3
+      - publish-linuxmusl-aarch64-gel-7-rc-3
+      - build-macos-x86_64-gel-7-rc-3
+      - publish-macos-x86_64-gel-7-rc-3
+      - build-macos-aarch64-gel-7-rc-3
+      - publish-macos-aarch64-gel-7-rc-3
       - build-debian-buster-x86_64-gel-nightly
       - publish-debian-buster-x86_64-gel-nightly
       - build-debian-buster-aarch64-gel-nightly
