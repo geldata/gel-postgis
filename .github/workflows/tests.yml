@@ -47,6 +47,10 @@ jobs:
       run: |
         echo EDBDIR=$(dirname $(which edgedb-server)) >> $GITHUB_ENV
 
+    - name: Install gel package
+      run: |
+        pip install gel==3.1.0b1
+
     - name: Register deb-src repositories
       run: |
         sudo sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
