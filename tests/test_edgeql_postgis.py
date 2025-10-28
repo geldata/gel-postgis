@@ -613,8 +613,11 @@ class TestEdgeQLPostgis(tb.QueryTestCase):
                     S := (
                         select F {
                             sig := array_agg((
-                                select (F.params, F.params.type.name)
-                                order by F.params@index
+                                select (
+                                  for p in F.params
+                                  select (p@index, p.type.name)
+                                )
+                                order by .0
                             ).1)
                         } filter
                             .name like 'ext::postgis::%'
@@ -637,8 +640,11 @@ class TestEdgeQLPostgis(tb.QueryTestCase):
                     S := (
                         select F {
                             sig := array_agg((
-                                select (F.params, F.params.type.name)
-                                order by F.params@index
+                                select (
+                                  for p in F.params
+                                  select (p@index, p.type.name)
+                                )
+                                order by .0
                             ).1)
                         } filter .name like 'ext::postgis::%'
                     ),
@@ -680,8 +686,11 @@ class TestEdgeQLPostgis(tb.QueryTestCase):
                     S := (
                         select F {
                             sig := array_agg((
-                                select (F.params, F.params.type.name)
-                                order by F.params@index
+                                select (
+                                  for p in F.params
+                                  select (p@index, p.type.name)
+                                )
+                                order by .0
                             ).1)
                         } filter .name like 'ext::postgis::%'
                     ),
@@ -1060,8 +1069,11 @@ class TestEdgeQLPostgis(tb.QueryTestCase):
                     S := (
                         select F {
                             sig := array_agg((
-                                select (F.params, F.params.type.name)
-                                order by F.params@index
+                                select (
+                                  for p in F.params
+                                  select (p@index, p.type.name)
+                                )
+                                order by .0
                             ).1) ++ [.return_type.name]
                         } filter .name like 'ext::postgis::op_%'
                     ),
