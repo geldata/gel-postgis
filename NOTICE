@@ -1,6 +1,9 @@
-edgedb-postgis is Copyright 2023-present EdgeDB Inc.
+gel-postgis is Copyright 2023-present Gel Data Inc.
 It is licensed under the GNU General Public License, version 2.0
+(see LICENSE).  The canonical location of the source code for gel-postgis
+is available at https://github.com/geldata/gel-postgis.
 
 PostGIS is also licensed GNU General Public License, version 2.0.
 More information about its license and its dependencies are available
-in LICENSE-postgis.txt.
+in LICENSE-postgis.txt.  Official PostGIS code repository, issue tracker
+and wiki is located at https://github.com/postgis/postgis.
