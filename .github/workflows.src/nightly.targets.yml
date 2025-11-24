@@ -5,7 +5,7 @@ publications:
 
 servers:
     - "6"
-    - "7-rc.3"
+    - "7"
     - nightly
 
 targets:

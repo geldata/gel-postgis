@@ -84,70 +84,70 @@ jobs:
 
 
 
-      if_debian_buster_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_buster_x86_64_gel_7_rc_3 }}
+      if_debian_buster_x86_64_gel_7: ${{ steps.scm.outputs.if_debian_buster_x86_64_gel_7 }}
 
 
-      if_debian_buster_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_buster_aarch64_gel_7_rc_3 }}
+      if_debian_buster_aarch64_gel_7: ${{ steps.scm.outputs.if_debian_buster_aarch64_gel_7 }}
 
 
-      if_debian_bullseye_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_bullseye_x86_64_gel_7_rc_3 }}
+      if_debian_bullseye_x86_64_gel_7: ${{ steps.scm.outputs.if_debian_bullseye_x86_64_gel_7 }}
 
 
-      if_debian_bullseye_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_bullseye_aarch64_gel_7_rc_3 }}
+      if_debian_bullseye_aarch64_gel_7: ${{ steps.scm.outputs.if_debian_bullseye_aarch64_gel_7 }}
 
 
-      if_debian_bookworm_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_bookworm_x86_64_gel_7_rc_3 }}
+      if_debian_bookworm_x86_64_gel_7: ${{ steps.scm.outputs.if_debian_bookworm_x86_64_gel_7 }}
 
 
-      if_debian_bookworm_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_debian_bookworm_aarch64_gel_7_rc_3 }}
+      if_debian_bookworm_aarch64_gel_7: ${{ steps.scm.outputs.if_debian_bookworm_aarch64_gel_7 }}
 
 
-      if_ubuntu_focal_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_focal_x86_64_gel_7_rc_3 }}
+      if_ubuntu_focal_x86_64_gel_7: ${{ steps.scm.outputs.if_ubuntu_focal_x86_64_gel_7 }}
 
 
-      if_ubuntu_focal_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_focal_aarch64_gel_7_rc_3 }}
+      if_ubuntu_focal_aarch64_gel_7: ${{ steps.scm.outputs.if_ubuntu_focal_aarch64_gel_7 }}
 
 
-      if_ubuntu_jammy_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_jammy_x86_64_gel_7_rc_3 }}
+      if_ubuntu_jammy_x86_64_gel_7: ${{ steps.scm.outputs.if_ubuntu_jammy_x86_64_gel_7 }}
 
 
-      if_ubuntu_jammy_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_jammy_aarch64_gel_7_rc_3 }}
+      if_ubuntu_jammy_aarch64_gel_7: ${{ steps.scm.outputs.if_ubuntu_jammy_aarch64_gel_7 }}
 
 
-      if_ubuntu_noble_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_noble_x86_64_gel_7_rc_3 }}
+      if_ubuntu_noble_x86_64_gel_7: ${{ steps.scm.outputs.if_ubuntu_noble_x86_64_gel_7 }}
 
 
-      if_ubuntu_noble_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_ubuntu_noble_aarch64_gel_7_rc_3 }}
+      if_ubuntu_noble_aarch64_gel_7: ${{ steps.scm.outputs.if_ubuntu_noble_aarch64_gel_7 }}
 
 
-      if_centos_8_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_centos_8_x86_64_gel_7_rc_3 }}
+      if_centos_8_x86_64_gel_7: ${{ steps.scm.outputs.if_centos_8_x86_64_gel_7 }}
 
 
-      if_centos_8_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_centos_8_aarch64_gel_7_rc_3 }}
+      if_centos_8_aarch64_gel_7: ${{ steps.scm.outputs.if_centos_8_aarch64_gel_7 }}
 
 
-      if_rockylinux_9_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_rockylinux_9_x86_64_gel_7_rc_3 }}
+      if_rockylinux_9_x86_64_gel_7: ${{ steps.scm.outputs.if_rockylinux_9_x86_64_gel_7 }}
 
 
-      if_rockylinux_9_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_rockylinux_9_aarch64_gel_7_rc_3 }}
+      if_rockylinux_9_aarch64_gel_7: ${{ steps.scm.outputs.if_rockylinux_9_aarch64_gel_7 }}
 
 
-      if_linux_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_linux_x86_64_gel_7_rc_3 }}
+      if_linux_x86_64_gel_7: ${{ steps.scm.outputs.if_linux_x86_64_gel_7 }}
 
 
-      if_linux_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_linux_aarch64_gel_7_rc_3 }}
+      if_linux_aarch64_gel_7: ${{ steps.scm.outputs.if_linux_aarch64_gel_7 }}
 
 
-      if_linuxmusl_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_linuxmusl_x86_64_gel_7_rc_3 }}
+      if_linuxmusl_x86_64_gel_7: ${{ steps.scm.outputs.if_linuxmusl_x86_64_gel_7 }}
 
 
-      if_linuxmusl_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_linuxmusl_aarch64_gel_7_rc_3 }}
+      if_linuxmusl_aarch64_gel_7: ${{ steps.scm.outputs.if_linuxmusl_aarch64_gel_7 }}
 
 
-      if_macos_x86_64_gel_7_rc_3: ${{ steps.scm.outputs.if_macos_x86_64_gel_7_rc_3 }}
+      if_macos_x86_64_gel_7: ${{ steps.scm.outputs.if_macos_x86_64_gel_7 }}
 
 
-      if_macos_aarch64_gel_7_rc_3: ${{ steps.scm.outputs.if_macos_aarch64_gel_7_rc_3 }}
+      if_macos_aarch64_gel_7: ${{ steps.scm.outputs.if_macos_aarch64_gel_7 }}
 
 
 
@@ -876,8 +876,8 @@ jobs:
 
 
 
-        key="debian-buster-x86_64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="debian-buster-x86_64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -903,8 +903,8 @@ jobs:
 
 
 
-        key="debian-buster-aarch64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="debian-buster-aarch64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -930,8 +930,8 @@ jobs:
 
 
 
-        key="debian-bullseye-x86_64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="debian-bullseye-x86_64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -957,8 +957,8 @@ jobs:
 
 
 
-        key="debian-bullseye-aarch64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="debian-bullseye-aarch64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -984,8 +984,8 @@ jobs:
 
 
 
-        key="debian-bookworm-x86_64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="debian-bookworm-x86_64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1011,8 +1011,8 @@ jobs:
 
 
 
-        key="debian-bookworm-aarch64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="debian-bookworm-aarch64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1038,8 +1038,8 @@ jobs:
 
 
 
-        key="ubuntu-focal-x86_64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="ubuntu-focal-x86_64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1065,8 +1065,8 @@ jobs:
 
 
 
-        key="ubuntu-focal-aarch64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="ubuntu-focal-aarch64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1092,8 +1092,8 @@ jobs:
 
 
 
-        key="ubuntu-jammy-x86_64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="ubuntu-jammy-x86_64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1119,8 +1119,8 @@ jobs:
 
 
 
-        key="ubuntu-jammy-aarch64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="ubuntu-jammy-aarch64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1146,8 +1146,8 @@ jobs:
 
 
 
-        key="ubuntu-noble-x86_64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="ubuntu-noble-x86_64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1173,8 +1173,8 @@ jobs:
 
 
 
-        key="ubuntu-noble-aarch64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="ubuntu-noble-aarch64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1200,8 +1200,8 @@ jobs:
 
 
 
-        key="centos-8-x86_64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="centos-8-x86_64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1227,8 +1227,8 @@ jobs:
 
 
 
-        key="centos-8-aarch64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="centos-8-aarch64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1254,8 +1254,8 @@ jobs:
 
 
 
-        key="rockylinux-9-x86_64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="rockylinux-9-x86_64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1281,8 +1281,8 @@ jobs:
 
 
 
-        key="rockylinux-9-aarch64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="rockylinux-9-aarch64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1308,8 +1308,8 @@ jobs:
 
 
 
-        key="linux-x86_64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="linux-x86_64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1335,8 +1335,8 @@ jobs:
 
 
 
-        key="linux-aarch64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="linux-aarch64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1362,8 +1362,8 @@ jobs:
 
 
 
-        key="linuxmusl-x86_64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="linuxmusl-x86_64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1389,8 +1389,8 @@ jobs:
 
 
 
-        key="linuxmusl-aarch64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="linuxmusl-aarch64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1416,8 +1416,8 @@ jobs:
 
 
 
-        key="macos-x86_64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="macos-x86_64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -1443,8 +1443,8 @@ jobs:
 
 
 
-        key="macos-aarch64-gel-7-rc-3"
-        name="edgedb-server-7-rc-3-postgis"
+        key="macos-aarch64-gel-7"
+        name="edgedb-server-7-postgis"
         val=true
 
 
@@ -2894,11 +2894,11 @@ jobs:
         name: builds-macos-aarch64-gel-6
         path: artifacts/macos-aarch64
 
-  build-debian-buster-x86_64-gel-7-rc-3:
+  build-debian-buster-x86_64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
     needs: prep
 
-    if: needs.prep.outputs.if_debian_buster_x86_64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_debian_buster_x86_64_gel_7 == 'true'
 
 
     steps:
@@ -2906,9 +2906,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "debian"
@@ -2920,14 +2920,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-debian-buster-x86_64-gel-7-rc-3
+        name: builds-debian-buster-x86_64-gel-7
         path: artifacts/debian-buster
 
-  build-debian-buster-aarch64-gel-7-rc-3:
+  build-debian-buster-aarch64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
     needs: prep
 
-    if: needs.prep.outputs.if_debian_buster_aarch64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_debian_buster_aarch64_gel_7 == 'true'
 
 
     steps:
@@ -2935,9 +2935,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-buster:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "debian"
@@ -2949,14 +2949,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-debian-buster-aarch64-gel-7-rc-3
+        name: builds-debian-buster-aarch64-gel-7
         path: artifacts/debian-buster
 
-  build-debian-bullseye-x86_64-gel-7-rc-3:
+  build-debian-bullseye-x86_64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
     needs: prep
 
-    if: needs.prep.outputs.if_debian_bullseye_x86_64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_debian_bullseye_x86_64_gel_7 == 'true'
 
 
     steps:
@@ -2964,9 +2964,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "debian"
@@ -2978,14 +2978,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-debian-bullseye-x86_64-gel-7-rc-3
+        name: builds-debian-bullseye-x86_64-gel-7
         path: artifacts/debian-bullseye
 
-  build-debian-bullseye-aarch64-gel-7-rc-3:
+  build-debian-bullseye-aarch64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
     needs: prep
 
-    if: needs.prep.outputs.if_debian_bullseye_aarch64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_debian_bullseye_aarch64_gel_7 == 'true'
 
 
     steps:
@@ -2993,9 +2993,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bullseye:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "debian"
@@ -3007,14 +3007,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-debian-bullseye-aarch64-gel-7-rc-3
+        name: builds-debian-bullseye-aarch64-gel-7
         path: artifacts/debian-bullseye
 
-  build-debian-bookworm-x86_64-gel-7-rc-3:
+  build-debian-bookworm-x86_64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
     needs: prep
 
-    if: needs.prep.outputs.if_debian_bookworm_x86_64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_debian_bookworm_x86_64_gel_7 == 'true'
 
 
     steps:
@@ -3022,9 +3022,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "debian"
@@ -3036,14 +3036,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-debian-bookworm-x86_64-gel-7-rc-3
+        name: builds-debian-bookworm-x86_64-gel-7
         path: artifacts/debian-bookworm
 
-  build-debian-bookworm-aarch64-gel-7-rc-3:
+  build-debian-bookworm-aarch64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
     needs: prep
 
-    if: needs.prep.outputs.if_debian_bookworm_aarch64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_debian_bookworm_aarch64_gel_7 == 'true'
 
 
     steps:
@@ -3051,9 +3051,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-debian-bookworm:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "debian"
@@ -3065,14 +3065,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-debian-bookworm-aarch64-gel-7-rc-3
+        name: builds-debian-bookworm-aarch64-gel-7
         path: artifacts/debian-bookworm
 
-  build-ubuntu-focal-x86_64-gel-7-rc-3:
+  build-ubuntu-focal-x86_64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
     needs: prep
 
-    if: needs.prep.outputs.if_ubuntu_focal_x86_64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_ubuntu_focal_x86_64_gel_7 == 'true'
 
 
     steps:
@@ -3080,9 +3080,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "ubuntu"
@@ -3094,14 +3094,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-ubuntu-focal-x86_64-gel-7-rc-3
+        name: builds-ubuntu-focal-x86_64-gel-7
         path: artifacts/ubuntu-focal
 
-  build-ubuntu-focal-aarch64-gel-7-rc-3:
+  build-ubuntu-focal-aarch64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
     needs: prep
 
-    if: needs.prep.outputs.if_ubuntu_focal_aarch64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_ubuntu_focal_aarch64_gel_7 == 'true'
 
 
     steps:
@@ -3109,9 +3109,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-focal:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "ubuntu"
@@ -3123,14 +3123,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-ubuntu-focal-aarch64-gel-7-rc-3
+        name: builds-ubuntu-focal-aarch64-gel-7
         path: artifacts/ubuntu-focal
 
-  build-ubuntu-jammy-x86_64-gel-7-rc-3:
+  build-ubuntu-jammy-x86_64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
     needs: prep
 
-    if: needs.prep.outputs.if_ubuntu_jammy_x86_64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_ubuntu_jammy_x86_64_gel_7 == 'true'
 
 
     steps:
@@ -3138,9 +3138,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "ubuntu"
@@ -3152,14 +3152,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-ubuntu-jammy-x86_64-gel-7-rc-3
+        name: builds-ubuntu-jammy-x86_64-gel-7
         path: artifacts/ubuntu-jammy
 
-  build-ubuntu-jammy-aarch64-gel-7-rc-3:
+  build-ubuntu-jammy-aarch64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
     needs: prep
 
-    if: needs.prep.outputs.if_ubuntu_jammy_aarch64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_ubuntu_jammy_aarch64_gel_7 == 'true'
 
 
     steps:
@@ -3167,9 +3167,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-jammy:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "ubuntu"
@@ -3181,14 +3181,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-ubuntu-jammy-aarch64-gel-7-rc-3
+        name: builds-ubuntu-jammy-aarch64-gel-7
         path: artifacts/ubuntu-jammy
 
-  build-ubuntu-noble-x86_64-gel-7-rc-3:
+  build-ubuntu-noble-x86_64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
     needs: prep
 
-    if: needs.prep.outputs.if_ubuntu_noble_x86_64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_ubuntu_noble_x86_64_gel_7 == 'true'
 
 
     steps:
@@ -3196,9 +3196,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "ubuntu"
@@ -3210,14 +3210,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-ubuntu-noble-x86_64-gel-7-rc-3
+        name: builds-ubuntu-noble-x86_64-gel-7
         path: artifacts/ubuntu-noble
 
-  build-ubuntu-noble-aarch64-gel-7-rc-3:
+  build-ubuntu-noble-aarch64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
     needs: prep
 
-    if: needs.prep.outputs.if_ubuntu_noble_aarch64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_ubuntu_noble_aarch64_gel_7 == 'true'
 
 
     steps:
@@ -3225,9 +3225,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-ubuntu-noble:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "ubuntu"
@@ -3239,14 +3239,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-ubuntu-noble-aarch64-gel-7-rc-3
+        name: builds-ubuntu-noble-aarch64-gel-7
         path: artifacts/ubuntu-noble
 
-  build-centos-8-x86_64-gel-7-rc-3:
+  build-centos-8-x86_64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
     needs: prep
 
-    if: needs.prep.outputs.if_centos_8_x86_64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_centos_8_x86_64_gel_7 == 'true'
 
 
     steps:
@@ -3254,9 +3254,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "centos"
@@ -3268,14 +3268,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-centos-8-x86_64-gel-7-rc-3
+        name: builds-centos-8-x86_64-gel-7
         path: artifacts/centos-8
 
-  build-centos-8-aarch64-gel-7-rc-3:
+  build-centos-8-aarch64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
     needs: prep
 
-    if: needs.prep.outputs.if_centos_8_aarch64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_centos_8_aarch64_gel_7 == 'true'
 
 
     steps:
@@ -3283,9 +3283,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-centos-8:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "centos"
@@ -3297,14 +3297,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-centos-8-aarch64-gel-7-rc-3
+        name: builds-centos-8-aarch64-gel-7
         path: artifacts/centos-8
 
-  build-rockylinux-9-x86_64-gel-7-rc-3:
+  build-rockylinux-9-x86_64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
     needs: prep
 
-    if: needs.prep.outputs.if_rockylinux_9_x86_64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_rockylinux_9_x86_64_gel_7 == 'true'
 
 
     steps:
@@ -3312,9 +3312,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "rockylinux"
@@ -3326,14 +3326,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-rockylinux-9-x86_64-gel-7-rc-3
+        name: builds-rockylinux-9-x86_64-gel-7
         path: artifacts/rockylinux-9
 
-  build-rockylinux-9-aarch64-gel-7-rc-3:
+  build-rockylinux-9-aarch64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
     needs: prep
 
-    if: needs.prep.outputs.if_rockylinux_9_aarch64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_rockylinux_9_aarch64_gel_7 == 'true'
 
 
     steps:
@@ -3341,9 +3341,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-rockylinux-9:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "rockylinux"
@@ -3355,14 +3355,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-rockylinux-9-aarch64-gel-7-rc-3
+        name: builds-rockylinux-9-aarch64-gel-7
         path: artifacts/rockylinux-9
 
-  build-linux-x86_64-gel-7-rc-3:
+  build-linux-x86_64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
     needs: prep
 
-    if: needs.prep.outputs.if_linux_x86_64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_linux_x86_64_gel_7 == 'true'
 
 
     steps:
@@ -3370,9 +3370,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-linux-x86_64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "linux"
@@ -3385,14 +3385,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-linux-x86_64-gel-7-rc-3
+        name: builds-linux-x86_64-gel-7
         path: artifacts/linux-x86_64
 
-  build-linux-aarch64-gel-7-rc-3:
+  build-linux-aarch64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
     needs: prep
 
-    if: needs.prep.outputs.if_linux_aarch64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_linux_aarch64_gel_7 == 'true'
 
 
     steps:
@@ -3400,9 +3400,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-linux-aarch64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "linux"
@@ -3415,14 +3415,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-linux-aarch64-gel-7-rc-3
+        name: builds-linux-aarch64-gel-7
         path: artifacts/linux-aarch64
 
-  build-linuxmusl-x86_64-gel-7-rc-3:
+  build-linuxmusl-x86_64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'x64']
     needs: prep
 
-    if: needs.prep.outputs.if_linuxmusl_x86_64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_linuxmusl_x86_64_gel_7 == 'true'
 
 
     steps:
@@ -3430,9 +3430,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-x86_64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "linux"
@@ -3446,14 +3446,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-linuxmusl-x86_64-gel-7-rc-3
+        name: builds-linuxmusl-x86_64-gel-7
         path: artifacts/linuxmusl-x86_64
 
-  build-linuxmusl-aarch64-gel-7-rc-3:
+  build-linuxmusl-aarch64-gel-7:
     runs-on: ['package-builder', 'self-hosted', 'linux', 'arm64']
     needs: prep
 
-    if: needs.prep.outputs.if_linuxmusl_aarch64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_linuxmusl_aarch64_gel_7 == 'true'
 
 
     steps:
@@ -3461,9 +3461,9 @@ jobs:
       uses: docker://ghcr.io/geldata/gelpkg-build-linuxmusl-aarch64:latest
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "linux"
@@ -3477,14 +3477,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-linuxmusl-aarch64-gel-7-rc-3
+        name: builds-linuxmusl-aarch64-gel-7
         path: artifacts/linuxmusl-aarch64
 
-  build-macos-x86_64-gel-7-rc-3:
+  build-macos-x86_64-gel-7:
     runs-on: ['macos-13']
     needs: prep
 
-    if: needs.prep.outputs.if_macos_x86_64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_macos_x86_64_gel_7 == 'true'
 
 
     steps:
@@ -3515,9 +3515,9 @@ jobs:
     - name: Build
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "macos"
@@ -3531,14 +3531,14 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-macos-x86_64-gel-7-rc-3
+        name: builds-macos-x86_64-gel-7
         path: artifacts/macos-x86_64
 
-  build-macos-aarch64-gel-7-rc-3:
+  build-macos-aarch64-gel-7:
     runs-on: ['macos-14']
     needs: prep
 
-    if: needs.prep.outputs.if_macos_aarch64_gel_7_rc_3 == 'true'
+    if: needs.prep.outputs.if_macos_aarch64_gel_7 == 'true'
 
 
     steps:
@@ -3569,9 +3569,9 @@ jobs:
     - name: Build
       env:
         PACKAGE: edgedbpkg.edgedb_ext.postgis:PostGIS
-        SRC_REF: "7-rc-3!${{ github.sha }}"
+        SRC_REF: "7!${{ github.sha }}"
         PKG_REVISION: "<current-date>"
-        PKG_TAGS: "extension=postgis,server_slot=7-rc-3"
+        PKG_TAGS: "extension=postgis,server_slot=7"
         PKG_COMPRESSION: "zstd,zip"
         PKG_SUBDIST: "nightly"
         PKG_PLATFORM: "macos"
@@ -3585,7 +3585,7 @@ jobs:
 
     - uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874  # v4.4.0
       with:
-        name: builds-macos-aarch64-gel-7-rc-3
+        name: builds-macos-aarch64-gel-7
         path: artifacts/macos-aarch64
 
   build-debian-buster-x86_64-gel-nightly:
@@ -4310,28 +4310,28 @@ jobs:
       - build-linuxmusl-aarch64-gel-6
       - build-macos-x86_64-gel-6
       - build-macos-aarch64-gel-6
-      - build-debian-buster-x86_64-gel-7-rc-3
-      - build-debian-buster-aarch64-gel-7-rc-3
-      - build-debian-bullseye-x86_64-gel-7-rc-3
-      - build-debian-bullseye-aarch64-gel-7-rc-3
-      - build-debian-bookworm-x86_64-gel-7-rc-3
-      - build-debian-bookworm-aarch64-gel-7-rc-3
-      - build-ubuntu-focal-x86_64-gel-7-rc-3
-      - build-ubuntu-focal-aarch64-gel-7-rc-3
-      - build-ubuntu-jammy-x86_64-gel-7-rc-3
-      - build-ubuntu-jammy-aarch64-gel-7-rc-3
-      - build-ubuntu-noble-x86_64-gel-7-rc-3
-      - build-ubuntu-noble-aarch64-gel-7-rc-3
-      - build-centos-8-x86_64-gel-7-rc-3
-      - build-centos-8-aarch64-gel-7-rc-3
-      - build-rockylinux-9-x86_64-gel-7-rc-3
-      - build-rockylinux-9-aarch64-gel-7-rc-3
-      - build-linux-x86_64-gel-7-rc-3
-      - build-linux-aarch64-gel-7-rc-3
-      - build-linuxmusl-x86_64-gel-7-rc-3
-      - build-linuxmusl-aarch64-gel-7-rc-3
-      - build-macos-x86_64-gel-7-rc-3
-      - build-macos-aarch64-gel-7-rc-3
+      - build-debian-buster-x86_64-gel-7
+      - build-debian-buster-aarch64-gel-7
+      - build-debian-bullseye-x86_64-gel-7
+      - build-debian-bullseye-aarch64-gel-7
+      - build-debian-bookworm-x86_64-gel-7
+      - build-debian-bookworm-aarch64-gel-7
+      - build-ubuntu-focal-x86_64-gel-7
+      - build-ubuntu-focal-aarch64-gel-7
+      - build-ubuntu-jammy-x86_64-gel-7
+      - build-ubuntu-jammy-aarch64-gel-7
+      - build-ubuntu-noble-x86_64-gel-7
+      - build-ubuntu-noble-aarch64-gel-7
+      - build-centos-8-x86_64-gel-7
+      - build-centos-8-aarch64-gel-7
+      - build-rockylinux-9-x86_64-gel-7
+      - build-rockylinux-9-aarch64-gel-7
+      - build-linux-x86_64-gel-7
+      - build-linux-aarch64-gel-7
+      - build-linuxmusl-x86_64-gel-7
+      - build-linuxmusl-aarch64-gel-7
+      - build-macos-x86_64-gel-7
+      - build-macos-aarch64-gel-7
       - build-debian-buster-x86_64-gel-nightly
       - build-debian-buster-aarch64-gel-nightly
       - build-debian-bullseye-x86_64-gel-nightly
